@@ -1,4 +1,4 @@
-<div class="comment-<%= comment.id %>" style="border: 1px solid black; padding: 1em; margin: 1em">
+<div class="comment-<%= comment.id %>" style="border: 1px solid #c2c2c2; padding: 1em; margin: 1em 0; border-radius: 8px">
   <%= comment.user.email %><br />
   <span>
     Posted: <%= time_ago_in_words(comment.created_at) %>
