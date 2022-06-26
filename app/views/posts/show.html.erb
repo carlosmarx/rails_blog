@@ -11,7 +11,11 @@
 
 
 <div>
-  <%= render 'comments/form', post: @post %>
+  <%= render 'comments/form', 
+        post: @post,  
+        comment: nil,
+        submit_label: 'Reply'
+      %>
 
   <% @comments.each do |comment| %>
     <%= render 'comments/comment', post: @post, comment: comment %>
