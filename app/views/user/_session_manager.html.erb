@@ -1,16 +1,17 @@
 <% if current_user %>
-<li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    <%= current_user.name %>
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <li><%= link_to 'New Post', new_post_path, class:"dropdown-item" %> </li>
-    <li><%= link_to 'My Account', edit_user_registration_path, class:"dropdown-item" %></li>
-    <li><hr class="dropdown-divider" /></li>
-    <%# <li><%= link_to 'Logout', destroy_user_session_path, class:"dropdown-item", data: { "turbo-method": :delete } </li> %>
-    <li><%= button_to 'Logout', destroy_user_session_path, class:"dropdown-item", method: :delete  %> </li>
-  </ul>
-</li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <%= current_user.name %>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li><%= link_to 'Admin Area', admin_path, class:"dropdown-item" if current_user.admin? %> </li>
+      <li><%= link_to 'New Post', new_post_path, class:"dropdown-item" %> </li>
+      <li><%= link_to 'My Account', edit_user_registration_path, class:"dropdown-item" %></li>
+      <li><hr class="dropdown-divider" /></li>
+      <%# <li><%= link_to 'Logout', destroy_user_session_path, class:"dropdown-item", data: { "turbo-method": :delete } </li> %>
+      <li><%= button_to 'Logout', destroy_user_session_path, class:"dropdown-item", method: :delete  %> </li>
+    </ul>
+  </li>
 <% else %>
   <li class="nav-item">
     <%= link_to 'Login', new_user_session_path, class: "nav-link" %>
