@@ -11,6 +11,8 @@ class Post < ApplicationRecord
   has_noticed_notifications model_name: 'Notification'
   has_many :notifications, through: :user
 
+  has_one_attached :image
+  has_many_attached :pictures
   has_rich_text :body
   has_one :content, class_name: 'ActionText::RichText', as: :record, dependent: :destroy
 end

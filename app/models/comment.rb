@@ -1,6 +1,9 @@
 class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :user
+
+  has_one_attached :image
+  has_many_attached :pictures
   has_rich_text :body
 
   after_create_commit :notify_recipient
