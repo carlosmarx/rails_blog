@@ -104,6 +104,7 @@ GEM
       rake
     globalid (1.0.0)
       activesupport (>= 5.0)
+    htmlbeautifier (1.4.2)
     http (5.1.0)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
@@ -196,6 +197,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    ransack (3.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     redis (4.6.0)
     regexp_parser (2.5.0)
     reline (0.3.1)
@@ -261,12 +266,14 @@ DEPENDENCIES
   capybara
   debug
   devise
+  htmlbeautifier (~> 1.4)
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
   noticed (~> 1.5)
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.4)
+  ransack (~> 3.2)
   redis (~> 4.0)
   selenium-webdriver
   sprockets-rails

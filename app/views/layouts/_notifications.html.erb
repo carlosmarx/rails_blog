@@ -6,6 +6,9 @@
     </span>
   </a>
   <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
+    <li class="dropdown-item">
+      Unread notifications:
+    </li>
     <% @unread.each do |notification| %>
      <%= render 'layouts/notification', notification: notification %>
     <% end %>
@@ -14,10 +17,14 @@
         <hr class="dropdown-divider" />
       </li>
     <% elsif @read.count + @unread.count == 0 %>
+    
       <li class="dropdown-item">
         No notifications yet.
       </li>
     <% end %>
+    <li class="dropdown-item">
+      Read notifications:
+    </li>
     <% @read.each do |notification| %>
       <%= render 'layouts/notification', notification: notification %>
     <% end %>

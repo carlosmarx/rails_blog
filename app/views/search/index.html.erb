@@ -1,0 +1,21 @@
+<h1 class="text-center"> <%= pluralize(@posts.count, 'Result') %> </h1>
+<div>
+  <table class="table table-striped table-borderless table-hover mt-4">
+    <thead>
+      <tr>
+        <th> <%= sort_link(@query, :title, "Title", default_order: :asc) %> </th>
+        <th> <%= sort_link(@query, :body, "Post content") %> </th>
+        <th> <%= sort_link(@query, :user_name, "Users") %> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr class="p-5">
+          <td><%= link_to post.title, post %></td>
+          <td><%= post.body.truncate_words(25) %></td>
+          <td><%= link_to post.user.name, post.user %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
