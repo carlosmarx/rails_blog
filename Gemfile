@@ -78,3 +78,5 @@ gem "noticed", "~> 1.5"
 gem "ransack", "~> 3.2"
 
 gem "htmlbeautifier", "~> 1.4"
+
+gem "friendly_id", "~> 5.4"
