@@ -19,11 +19,13 @@ User.create(email: 'user@mail.com',
             name: 'User')
 
 10.times do |x|
-  post = Post.create(title: "Title for Post #{x}",
-                     body: "Body content #{x} here for post #{x}",
+  puts "creating post #{x + 1}"
+  post = Post.create(title: "Title for Post #{x + 1}",
+                     body: "Body content #{x + 1} here for post #{x + 1}",
                      user_id: User.first.id)
-  5.times do |_y|
-    Comment.create(body: "Comment #{x} here for post #{x}",
+  5.times do |y|
+    puts "creating comment #{y + 1} for post #{x + 1}"
+    Comment.create(body: "Comment #{y + 1} here for post #{y + 1}",
                    user_id: User.second.id,
                    post_id: post.id)
   end
