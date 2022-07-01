@@ -18,15 +18,24 @@ User.create(email: 'user@mail.com',
             password_confirmation: '12345678',
             name: 'User')
 
-10.times do |x|
-  puts "creating post #{x + 1}"
-  post = Post.create(title: "Title for Post #{x + 1}",
-                     body: "Body content #{x + 1} here for post #{x + 1}",
-                     user_id: User.first.id)
-  5.times do |y|
-    puts "creating comment #{y + 1} for post #{x + 1}"
-    Comment.create(body: "Comment #{y + 1} here for post #{y + 1}",
-                   user_id: User.second.id,
-                   post_id: post.id)
+admin = User.first
+user = User.second
+elapsed = Benchmark.measure do
+  posts = []
+  20.times do |x|
+    puts "creating post #{x + 1}"
+    id = x + 1
+    post = Post.new(title: "Title for Post #{id}",
+                    body: "Body content #{id} here for post #{id}",
+                    user: admin)
+    rand(2...5).times do |y|
+      puts "creating comment #{y + 1} for post #{id}"
+      post.comments.build(body: "Comment #{y + 1} here for post #{y + 1}",
+                          user: user)
+    end
+    posts.push(post)
   end
+  Post.import(posts, recursive: true)
 end
+
+puts "Time elapsed: #{elapsed.real} seconds"
