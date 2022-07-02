@@ -14,7 +14,7 @@
   <p><strong>Views:</strong> <%= @post.views %></p>
 </div>
 <div class="row mt-1">
-  <p><strong>Author:</strong> <%= "#{@post.user.email} | #{@post.user.name} | #{pluralize(@post.user.views, "Views")}" %></p>
+  <p><strong>Author:</strong> <%= "#{@post.user.email} | #{@post.user.first_name} #{@post.user.last_name} | #{pluralize(@post.user.views, "Views")}" %></p>
 </div>
 <div class="row mt-1">
   <p><strong>Body:</strong> <%= @post.body %></p>
@@ -24,7 +24,7 @@
   <% @post.comments.each do |comment| %>
     <hr />
     <div class="row mt-1">
-      <p><strong>Author:</strong> <%=  comment.user.name %></p>
+      <p><strong>Author:</strong> <%=  comment.user.full_name %></p>
       <p><strong>Body:</strong> <%= comment.body %></p>
     </div>
   <% end %>
